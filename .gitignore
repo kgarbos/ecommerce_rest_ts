@@ -1,0 +1,21 @@
+# Ignore Node.js build output
+node_modules/
+
+# Ignore client build output
+client/build/
+
+# Ignore .env files containing sensitive information
+.env
+
+# Ignore server build output
+dist/
+
+# Ignore logs and other output from the server
+logs/
+
+# Ignore any local editor configuration files
+.vscode/
+.idea/
+
+# Ignore any backup files
+*~
