@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-import { CartItem, Product } from '../interfaces';
+import { CartItem } from '../interfaces';
 import axios from 'axios';
 import { useAuth } from '../contexts/AuthContext'; // Import the useAuth hook
 
