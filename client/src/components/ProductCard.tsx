@@ -36,7 +36,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   const handleAddToCart = async () => {
     if (!auth.token) {
-      // Redirect to the login page if the user is not logged in
       navigate('/login');
       return;
     }
