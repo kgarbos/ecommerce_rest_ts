@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IconButton, Badge } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import axios from 'axios';
-import { useAuth } from '../contexts/AuthContext'; // Import the useAuth hook
+import { useAuth } from '../contexts/AuthContext';
 
 interface CartIconProps {
   onClick: () => void;
@@ -10,17 +10,17 @@ interface CartIconProps {
 
 const CartIcon: React.FC<CartIconProps> = ({ onClick }) => {
   const [cartItemCount, setCartItemCount] = useState(0);
-  const { token } = useAuth(); // Get the token using the useAuth hook
+  const { token } = useAuth();
 
   useEffect(() => {
     const fetchCart = async () => {
-      if (!token) return; // Add this line to avoid making requests without a token
+      if (!token) return; 
 
       try {
         const { data } = await axios.get('/api/cart', {
           headers: { Authorization: `Bearer ${token}` },
         });
-        if (data && data.items) { // Add this check to ensure data.items is defined
+        if (data && data.items) { 
           setCartItemCount(data.items.length);
         }
       } catch (error) {
@@ -29,7 +29,7 @@ const CartIcon: React.FC<CartIconProps> = ({ onClick }) => {
     };
 
     fetchCart();
-  }, [token]); // Add token as a dependency
+  }, [token]); 
 
   return (
     <IconButton edge="end" color="inherit" onClick={onClick}>

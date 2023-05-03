@@ -3,14 +3,14 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 interface AuthContextProps {
   isAuthenticated: boolean;
-  token: string | null; // Add this line
+  token: string | null; 
   login: (token: string) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextProps>({
   isAuthenticated: false,
-  token: null, // Add this line
+  token: null,
   login: () => {},
   logout: () => {},
 });
@@ -23,7 +23,7 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [token, setToken] = useState<string | null>(null); // Add this line
+  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');

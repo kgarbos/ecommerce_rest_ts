@@ -3,7 +3,6 @@ import express, { Request, Response, NextFunction } from 'express';
 import * as dotenv from 'dotenv';
 import path from 'path';
 import ErrorResponse from './utils/errorResponse';
-
 dotenv.config({ path: './config.env' });
 
 // Routes
@@ -20,7 +19,7 @@ connectDB();
 const app = express();
 app.use(express.json());
 
-// Create winston logger instance
+// Winston logger instance
 const logger = winston.createLogger({
   transports: [
     new winston.transports.Console(),
@@ -33,7 +32,7 @@ const logger = winston.createLogger({
   ),
 });
 
-// Use logger middleware to log requests and responses
+// Logger middleware to log requests and responses
 app.use((req: Request, res: Response, next: NextFunction) => {
   logger.info(`${req.method} ${req.originalUrl}`);
   res.on('finish', () => {

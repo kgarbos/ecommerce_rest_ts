@@ -89,7 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
           {isAuthenticated ? (
             <>
               <CartIcon onClick={handleCartClick} />
-              {/* ...other authenticated user actions... */}
+              {/* other authenticated user actions*/}
             </>
           ) : null}
         </Toolbar>

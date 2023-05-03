@@ -12,7 +12,7 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ open, onClose, onRegisterClick }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth(); // Add this line to use the login function from AuthContext
+  const { login } = useAuth();
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -34,7 +34,7 @@ const Login: React.FC<LoginProps> = ({ open, onClose, onRegisterClick }) => {
 
       if (response.ok) {
         const data = await response.json();
-        login(data.token); // Use the login function from AuthContext
+        login(data.token);
         onClose();
       } else {
         alert('Login failed. Please check your email and password and try again.');

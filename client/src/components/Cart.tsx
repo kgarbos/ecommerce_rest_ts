@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { CartItem } from '../interfaces';
 import axios from 'axios';
-import { useAuth } from '../contexts/AuthContext'; // Import the useAuth hook
+import { useAuth } from '../contexts/AuthContext'; 
 
 const Cart: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -44,9 +44,9 @@ const Cart: React.FC = () => {
       const { data } = await axios.patch(`/api/cart/${itemId}`, { quantity }, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log('Update cart response:', data); // Log the response data
+      console.log('Update cart response:', data);
     } catch (error) {
-      console.error('Update cart error:', error); // Log the error
+      console.error('Update cart error:', error);
     }
   };
   
@@ -57,22 +57,22 @@ const Cart: React.FC = () => {
       const { data } = await axios.delete(`/api/cart/${itemId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log('Remove item response:', data); // Log the response data
+      console.log('Remove item response:', data);
     } catch (error) {
-      console.error('Remove item error:', error); // Log the error
+      console.error('Remove item error:', error); 
     }
   };
 
   const handleItemQuantityChange = async (itemId: string, quantity: number) => {
     const updatedItems = cartItems.map(item => item._id === itemId ? { ...item, quantity } : item);
     setCartItems(updatedItems);
-    updateCartBackend(itemId, quantity); // Call updateCartBackend with itemId and quantity
+    updateCartBackend(itemId, quantity);
   };
   
   const handleRemoveItem = (itemId: string) => {
     const updatedItems = cartItems.filter(item => item._id !== itemId);
     setCartItems(updatedItems);
-    removeFromCartBackend(itemId); // Call removeFromCartBackend with itemId
+    removeFromCartBackend(itemId); 
   };
 
   return (
